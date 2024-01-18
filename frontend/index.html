@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross-Platform To Do</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script defer src="./node_modules/alpinejs/dist/cdn.js"></script>
+    <script type="module" src="script.js"></script>
+  </head>
+  <body
+    x-data="{ currentView: 'login', isAuthenticated: false }"
+    x-init="
+    sessionKey = document.cookie.split('; ').find(row => row.startsWith('session_key='));
+    // console.log(document.cookie.split('; ').find(row => row.startsWith('session_key=')));
+    isAuthenticated = sessionKey ? true : false;
+    // console.log(isAuthenticated)
+    if (isAuthenticated) {
+        currentView = 'calendar';
+    }
+"
+  >
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white py-3 px-4 flex items-center justify-between">
+        <a class="font-bold text-xl tracking-tight" href="/">Cross Platform Productivity</a>
+        <div class="flex items-center">
+            <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" x-show="isAuthenticated === true" @click="currentView = 'calendar'">Calendar</a>
+            <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" x-show="isAuthenticated === true" @click="currentView = 'tasks'">Tasks</a>
+            <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" x-show="isAuthenticated === false" @click="currentView = 'login'">Login</a>
+            <a class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700" x-show="isAuthenticated === false" @click="currentView = 'register'">Register</a>
+        </div>
+    </nav>
+    
+
+    <!-- Content -->
+    <div class="flex flex-row flex-wrap items-center justify-center m-1 md:m-10">
+      <!-- Your components go here -->
+      <div
+        x-show="currentView === 'login'"
+      >
+
+      <h2 class="text-2xl font-semibold mb-4">Login</h2>
+        <div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form id="loginForm"
+                @submit.prevent = "
+                const loginForm = document.getElementById('loginForm');
+                const formData = new FormData(loginForm);
+
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors',
+                    credentials: 'include'
+                });
+
+                const result = await response.text();
+
+                // If login is successful, switch to the calendar view
+                if (result === 'Login Successful!') {
+                    isAuthenticated = true
+                    currentView = 'calendar';
+                }
+                "
+            >
+              <div>
+                <label class="block font-semibold" for="loginUsername">Username</label>
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="loginUsername"
+                  type="text"
+                  name="loginUsername"
+                  required="required"
+                  autofocus="autofocus"
+                />
+              </div>
+
+              <div class="mt-4">
+                <label class="block font-semibold" for="loginPassword"
+                  >Password</label
+                >
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="loginPassword"
+                  type="password"
+                  name="loginPassword"
+                  required="required"
+                  autocomplete="new-password"
+                />
+              </div>
+
+              <div class="flex items-center justify-between mt-8">
+                <button
+                  type="submit"
+                  class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                >
+                  Login
+                </button>
+                <button
+                  @click="currentView = 'register'"
+                  class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                >
+                  Don't have an account?
+                </button>
+              </div>
+            </form>
+
+            <aside class="">
+              <div class="bg-gray-100 p-8 rounded">
+                <h2 class="font-bold text-2xl">Instructions</h2>
+                <ul class="list-disc mt-4 list-inside">
+                  <li>
+                    All users must provide a valid username and password to login.
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <div x-show="currentView === 'register'">
+        <h2 class="text-2xl font-semibold mb-4">Register</h2>
+        <div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form id="registerForm"
+                @submit.prevent="
+                    const registerForm = document.getElementById('registerForm');
+                    const formData = new FormData(registerForm);
+                
+                    const response = await fetch('http://localhost:5000/register', {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'cors',
+                        credentials: 'include'
+                    });
+                
+                    const result = await response.text();
+                
+                    // If registration is successful, switch to the calendar view
+                    if (result === 'USER CREATED!') {
+                        currentView = 'login';
+                    }"
+            >
+              <div>
+                <label class="block font-semibold" for="name">Name</label>
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="name"
+                  type="text"
+                  name="name"
+                  required="required"
+                  autofocus="autofocus"
+                />
+              </div>
+
+              <div>
+                <label class="block font-semibold" for="username"
+                  >Username</label
+                >
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="username"
+                  type="text"
+                  name="username"
+                  required="required"
+                  autofocus="autofocus"
+                />
+              </div>
+
+              <div class="mt-4">
+                <label class="block font-semibold" for="email">Email</label>
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="email"
+                  type="email"
+                  name="email"
+                  required="required"
+                />
+              </div>
+
+              <div class="mt-4">
+                <label class="block font-semibold" for="password"
+                  >Password</label
+                >
+                <input
+                  class="w-full shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full"
+                  id="password"
+                  type="password"
+                  name="password"
+                  required="required"
+                  autocomplete="new-password"
+                />
+              </div>
+
+              <div class="flex items-center justify-between mt-8">
+                <button
+                  type="submit"
+                  class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                >
+                  Register
+                </button>
+                <button
+                  @click="currentView = 'login'"
+                  class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                >
+                  Already Registered?
+                </button>
+              </div>
+            </form>
+
+            <aside class="">
+              <div class="bg-gray-100 p-8 rounded">
+                <h2 class="font-bold text-2xl">Instructions</h2>
+                <ul class="list-disc mt-4 list-inside">
+                  <li>
+                    All users must provide a valid email address and password to
+                    create an account.
+                  </li>
+                  <li>
+                    Users must not use offensive, vulgar, or otherwise
+                    inappropriate language in their username or profile
+                    information
+                  </li>
+                  <li>
+                    Users must not create multiple accounts for the same person.
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+        <div
+            x-show="currentView === 'calendar'"
+            class="w-full"
+        >
+            <h2 class="text-2xl font-semibold mb-4 text-center w-full">Calendar View</h2>
+            <div id="calendarContainer" class="flex flex-col p-1 md:p-10 md:flex-row">
+                <div class="calendar-container  bg-gray-700 ">
+                    <header class="calendar-header">
+                        <p class="calendar-current-date"></p>
+                        <div class="calendar-navigation">
+                            <div class="container flex justify-center mx-auto">
+                                <div class="flex flex-row mx-auto">
+                                    <span id="calendar-prev" class="ml-2">
+                                <button type="button" id="calendar-prev" class="p-5 bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-1 hover:bg-red-700 hover:text-white px-1">
+                                                                    <div class="flex flex-row align-middle pl-4">
+                                        <svg class="w-3 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    </div>
+                                </button>
+                                </span>
+                                <span id="calendar-next" class="ml-2">
+                                <button type="button" id="calendar-next" class="p-5 bg-gray-800 text-white rounded-r-md py-1 border-l border-gray-200 hover:bg-red-700 hover:text-white px-1">
+
+                                    <div class="flex flex-row align-middle pr-4">
+                                        <svg class="w-3 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    </div>
+                                </button>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="calendar-body">
+                        <ul class="calendar-weekdays">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
+                        </ul>
+                        <ul class="calendar-dates"></ul>
+                    </div>
+                </div>
+                <div class="ml-5 sm:m-1 sm:mt-5 pt-5 md:pt-1 flex flex-col w-1/2">
+                    <h2 class="self-auto w-full text-center font-bold">TASKS</h2>
+                    <hr class="ml-5 w-full border-black border-1">
+                </div>
+            </div>
+        </div>
+
+      <div
+        x-show="currentView === 'tasks'"
+        class="bg-white p-8 rounded shadow-md max-w-md w-full"
+      >
+        <h2 class="text-2xl font-semibold mb-4">Tasks View</h2>
+        <!-- Your tasks view goes here -->
+      </div>
+    </div>
+  </body>
+</html>

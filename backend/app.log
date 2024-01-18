@@ -1,0 +1,99 @@
+2024-01-16 19:01:26,387 - INFO - DB Created
+2024-01-16 19:01:26,393 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.24.0.3:5000
+2024-01-16 19:01:26,393 - INFO - [33mPress CTRL+C to quit[0m
+2024-01-16 19:01:26,393 - INFO -  * Restarting with stat
+2024-01-16 19:01:26,669 - INFO - DB Created
+2024-01-16 19:01:26,672 - WARNING -  * Debugger is active!
+2024-01-16 19:01:26,673 - INFO -  * Debugger PIN: 895-979-196
+2024-01-16 19:01:35,835 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:35] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:01:36,230 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:36] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:01:36,709 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:36] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:01:39,272 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:39] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:01:44,569 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:44] "POST /register HTTP/1.1" 200 -
+2024-01-16 19:01:56,192 - INFO - 172.24.0.1 - - [16/Jan/2024 19:01:56] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:03:16,237 - INFO - 172.24.0.1 - - [16/Jan/2024 19:03:16] "[33mGET / HTTP/1.1[0m" 404 -
+2024-01-16 19:03:18,270 - INFO - 172.24.0.1 - - [16/Jan/2024 19:03:18] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:03:22,422 - INFO - 172.24.0.1 - - [16/Jan/2024 19:03:22] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:05:30,845 - INFO - DB Created
+2024-01-16 19:05:30,851 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.24.0.3:5000
+2024-01-16 19:05:30,851 - INFO - [33mPress CTRL+C to quit[0m
+2024-01-16 19:05:30,851 - INFO -  * Restarting with stat
+2024-01-16 19:05:31,133 - INFO - DB Created
+2024-01-16 19:05:31,136 - WARNING -  * Debugger is active!
+2024-01-16 19:05:31,137 - INFO -  * Debugger PIN: 895-979-196
+2024-01-16 19:06:27,562 - INFO - DB Created
+2024-01-16 19:06:27,569 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.25.0.3:5000
+2024-01-16 19:06:27,570 - INFO - [33mPress CTRL+C to quit[0m
+2024-01-16 19:06:27,570 - INFO -  * Restarting with stat
+2024-01-16 19:06:27,836 - INFO - DB Created
+2024-01-16 19:06:27,840 - WARNING -  * Debugger is active!
+2024-01-16 19:06:27,840 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:06:31,645 - INFO - 172.25.0.1 - - [16/Jan/2024 19:06:31] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:06:33,947 - INFO - 172.25.0.1 - - [16/Jan/2024 19:06:33] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:06:42,900 - INFO - 172.25.0.1 - - [16/Jan/2024 19:06:42] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:06:53,386 - INFO - 172.25.0.1 - - [16/Jan/2024 19:06:53] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2024-01-16 19:08:05,293 - INFO -  * Detected change in '/cross-platform-productivity-backend/app.py', reloading
+2024-01-16 19:08:05,344 - INFO -  * Restarting with stat
+2024-01-16 19:08:05,602 - INFO - DB Created
+2024-01-16 19:08:05,606 - WARNING -  * Debugger is active!
+2024-01-16 19:08:05,606 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:08:08,620 - INFO -  * Detected change in '/cross-platform-productivity-backend/app.py', reloading
+2024-01-16 19:08:08,667 - INFO -  * Restarting with stat
+2024-01-16 19:08:08,932 - INFO - DB Created
+2024-01-16 19:08:08,935 - WARNING -  * Debugger is active!
+2024-01-16 19:08:08,935 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:08:10,951 - INFO -  * Detected change in '/cross-platform-productivity-backend/app.py', reloading
+2024-01-16 19:08:11,012 - INFO -  * Restarting with stat
+2024-01-16 19:08:11,264 - INFO - DB Created
+2024-01-16 19:08:11,267 - WARNING -  * Debugger is active!
+2024-01-16 19:08:11,267 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:08:15,291 - INFO -  * Detected change in '/cross-platform-productivity-backend/app.py', reloading
+2024-01-16 19:08:15,342 - INFO -  * Restarting with stat
+2024-01-16 19:08:15,597 - INFO - DB Created
+2024-01-16 19:08:15,601 - WARNING -  * Debugger is active!
+2024-01-16 19:08:15,601 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:08:28,952 - INFO - 172.25.0.1 - - [16/Jan/2024 19:08:28] "GET /test HTTP/1.1" 200 -
+2024-01-16 19:08:40,774 - INFO - DB Created
+2024-01-16 19:08:40,779 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.25.0.3:5000
+2024-01-16 19:08:40,779 - INFO - [33mPress CTRL+C to quit[0m
+2024-01-16 19:08:40,780 - INFO -  * Restarting with stat
+2024-01-16 19:08:41,072 - INFO - DB Created
+2024-01-16 19:08:41,076 - WARNING -  * Debugger is active!
+2024-01-16 19:08:41,076 - INFO -  * Debugger PIN: 506-948-486
+2024-01-16 19:08:59,835 - INFO - 172.25.0.1 - - [16/Jan/2024 19:08:59] "POST /login HTTP/1.1" 200 -
+2024-01-17 11:13:20,602 - INFO - DB Created
+2024-01-17 11:13:20,611 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.3:5000
+2024-01-17 11:13:20,611 - INFO - [33mPress CTRL+C to quit[0m
+2024-01-17 11:13:20,611 - INFO -  * Restarting with stat
+2024-01-17 11:13:20,900 - INFO - DB Created
+2024-01-17 11:13:20,903 - WARNING -  * Debugger is active!
+2024-01-17 11:13:20,904 - INFO -  * Debugger PIN: 130-673-820
+2024-01-17 11:13:21,931 - INFO - 172.18.0.1 - - [17/Jan/2024 11:13:21] "GET /test HTTP/1.1" 200 -
+2024-01-17 11:13:21,961 - INFO - 172.18.0.1 - - [17/Jan/2024 11:13:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-01-17 11:13:27,126 - INFO - 172.18.0.1 - - [17/Jan/2024 11:13:27] "POST /login HTTP/1.1" 200 -
+2024-01-17 11:20:59,504 - INFO - 172.18.0.1 - - [17/Jan/2024 11:20:59] "GET /test HTTP/1.1" 200 -
+2024-01-17 11:50:22,297 - INFO - 172.18.0.1 - - [17/Jan/2024 11:50:22] "GET /test HTTP/1.1" 200 -
+2024-01-17 12:07:19,421 - INFO - 172.18.0.1 - - [17/Jan/2024 12:07:19] "GET /test HTTP/1.1" 200 -
+2024-01-17 12:07:20,158 - INFO - 172.18.0.1 - - [17/Jan/2024 12:07:20] "GET /test HTTP/1.1" 200 -
+2024-01-17 12:07:21,241 - INFO - 172.18.0.1 - - [17/Jan/2024 12:07:21] "GET /test HTTP/1.1" 200 -
+2024-01-18 07:06:48,895 - INFO - 172.18.0.1 - - [18/Jan/2024 07:06:48] "[33mGET / HTTP/1.1[0m" 404 -
+2024-01-18 07:06:48,912 - INFO - 172.18.0.1 - - [18/Jan/2024 07:06:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-01-18 07:06:51,827 - INFO - 172.18.0.1 - - [18/Jan/2024 07:06:51] "GET /test HTTP/1.1" 200 -
+2024-01-18 07:06:52,801 - INFO - 172.18.0.1 - - [18/Jan/2024 07:06:52] "GET /test HTTP/1.1" 200 -
+2024-01-18 07:06:53,130 - INFO - 172.18.0.1 - - [18/Jan/2024 07:06:53] "GET /test HTTP/1.1" 200 -
+2024-01-18 07:07:03,738 - INFO - 172.18.0.1 - - [18/Jan/2024 07:07:03] "POST /login HTTP/1.1" 200 -
